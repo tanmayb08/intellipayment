@@ -1,16 +1,43 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway Simulation</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <h2>Pay For Intellicharge.</h2>
-    <div id="container"></div>
-<script async
-  src="./index.js"
-  onload="onGooglePayLoaded()"></script>
+    <div class="container">
+        <h1>Payment Gateway Simulation</h1>
+        <form id="payment-form">
+            <div class="form-group">
+                <label for="amount">Amount ($)</label>
+                <input type="number" id="amount" required>
+            </div>
+            <div class="form-group">
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" required>
+            </div>
+            <div class="form-group">
+                <label for="expiry-date">Expiry Date (MM/YY)</label>
+                <input type="text" id="expiry-date" required>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" required>
+            </div>
+            <button type="submit" id="pay-button">Pay Now</button>
+        </form>
+        <div id="processing" class="hidden">
+            <div class="loader"></div>
+            <p>Processing your payment...</p>
+        </div>
+        <div id="result" class="hidden">
+            <div class="tick-animation hidden">&#10003;</div>
+            <h2>Payment Successful!</h2>
+            <p>Thank you for your payment of $<span id="payment-amount"></span>.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
-
 </html>
